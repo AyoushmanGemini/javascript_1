@@ -24,12 +24,24 @@ async function getResponse() {
 
 ( async function name() {
 
+
+   
+    document.body.style.backgroundColor = "#E5E0FF";
+    document.getElementById("head").style.display = "flex";
+    document.getElementById("head").style.flexDirection = "column";
+    document.getElementById("head").style.alignItems = "center";
+    document.getElementById("head").style.justifyContent = "center";
+
     document.getElementById("main").style.display = "flex";
     document.getElementById("main").style.flexDirection = "column";
     document.getElementById("main").style.alignContent = "center";
     document.getElementById("main").style.justifyContent = "center";
+    document.getElementById("main").style.minWidth = "100vw";
+    document.getElementById("main").style.minHeight = "100vh";
     let br = document.createElement("br");
     let table1 = document.createElement("table");
+    table1.classList.add("table")
+    table1.classList.add("table-hover")
     let tBody = document.createElement("tbody");
 
 
