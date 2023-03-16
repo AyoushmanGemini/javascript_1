@@ -12,7 +12,7 @@ async function getResponse() {
         ); 
         
         const data = await response.json();
-        console.log(data)
+      
         return data ;
     } catch (error) {
         console.log(error)
@@ -22,7 +22,12 @@ async function getResponse() {
     
 }
 
-(function name() {
+( async function name() {
+
+    document.getElementById("main").style.display = "flex";
+    document.getElementById("main").style.flexDirection = "column";
+    document.getElementById("main").style.alignContent = "center";
+    document.getElementById("main").style.justifyContent = "center";
     let br = document.createElement("br");
     let table1 = document.createElement("table");
     let tBody = document.createElement("tbody");
@@ -54,13 +59,46 @@ async function getResponse() {
     for (let i = 0; i < 5; i++) {
    
         const row = document.createElement("tr");
-    getResponse();
-        for (let j = 0; j < 5; j++) {
+     let data = await getResponse();
+
+     console.log(data);
+     
+    
+     
+     
+     for (let j = 0; j < 5; j++) {
+         if(j==0){
+            const cell_name = document.createElement("td");
+            const name_text = document.createTextNode(` ${data.first_name}`);
+            cell_name.appendChild(name_text);
+            row.appendChild(cell_name);
+         } else if(j==1) {
+            const cell_age = document.createElement("td");
+            const age_text = document.createTextNode(`11/10/2000`);
+            cell_age.appendChild(age_text);
+            row.appendChild(cell_age);
+         }
+
+         else if(j==2) {
+ const cell_date = document.createElement("td");
+ const date_text = document.createTextNode(`${data.date_of_birth}`)
+            cell_date.appendChild(date_text);
+            row.appendChild(cell_date)
+         }else if(j==3){
+const email = document.createElement("td");
+const email_text = document.createTextNode(`${data.email}`)
+email.appendChild(email_text);
+row.appendChild(email)
+         }
+
+         else if(j==4){
+            const company = document.createElement("td");
+            const company_text = document.createTextNode(`${data.username}`)
+company.appendChild(company_text);
+row.appendChild(company)
+         }
          
-          const cell = document.createElement("td");
-          const cellText = document.createTextNode(`cell in row ${i}, column ${j}`);
-          cell.appendChild(cellText);
-          row.appendChild(cell);
+         
         }
     
       
